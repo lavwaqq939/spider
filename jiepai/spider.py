@@ -12,6 +12,11 @@ import requests
 from urllib.parse import urlencode
 from requests.exceptions import RequestException
 from bs4 import BeautifulSoup
+from config import *
+from sshtunnel import SSHTunnelForwarder
+import pymongo
+from hashlib import md5
+from multiprocessing import Pool
 
 headers = {
 'user-agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
@@ -66,18 +71,56 @@ def parse_page_detail(html,url):
 		if data and 'sub_images' in data.keys():
 			sub_images = data.get('sub_images')
 			images = [item.get('url') for item in sub_images]
+			for image in images:	download_image(image)
 			return {
 				'title':title,
 				'url':url,
 				'images':images
 			}
 
-def main():
-	html = get_index_page(0,'街拍')
+def connect_to_mongo(SSH_IP,SSH_PORT,SSH_USER,SSH_PASSWORD,MONGO_IP,MONGO_PORT,MONGO_DB,MONGO_TABLE):
+	server = SSHTunnelForwarder((SSH_IP,SSH_PORT),ssh_username = SSH_USER,
+		ssh_password = SSH_PASSWORD,remote_bind_address = (MONGO_IP,MONGO_PORT),
+		local_bind_address=('0.0.0.0', 27017))
+	server.start()
+	client = pymongo.MongoClient(host = MONGO_IP)
+	db = client[MONGO_DB]
+	return db
+
+def save_to_mongo(result,db):
+	if db[MONGO_TABLE].insert(result):
+		return True
+	return False
+
+def download_image(url):
+	print('正在下载',url)
+	try:
+		response = requests.get(url)
+		if response.status_code == 200:
+			save_image(response.content)
+		return None
+	except RequestException:
+		print('请求图片页出错',url)
+		return None
+
+def save_image(content):
+	file_path = '{0}/{1}.{2}'.format(SAVE_FILE_PATH,md5(content).hexdigest(),'jpg')
+	if not os.path.exists(file_path):
+		with open(file_path,'wb') as f:
+			f.write(content)
+			f.close()
+
+def main(offset):
+	html = get_index_page(offset,KEYWORD)
 	for url in parse_page_index(html):
 		if url is not None:
 			html = get_page_detail(url)
-			resu = parse_page_detail(html,url)
-			print(resu)
+			result = parse_page_detail(html,url)
+			db = connect_to_mongo(SSH_IP,SSH_PORT,SSH_USER,SSH_PASSWORD,
+				MONGO_IP,MONGO_PORT,MONGO_DB,MONGO_TABLE)
+			save_to_mongo(result,db)
+
 if __name__ == '__main__':
-	main()
+	groups = [x*20 for x in range(GROUP_START,GROUP_END+1)]
+	pool = Pool()
+	pool.map(main,groups)
