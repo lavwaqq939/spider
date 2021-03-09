@@ -1,0 +1,10 @@
+SSH_IP = '47.106.9.8'
+SSH_PORT = 22
+SSH_USER = "root"
+SSH_PASSWORD = "jIN13462967465"
+MONGO_IP = 'localhost'
+MONGO_PORT = 27017
+MONGO_DB = 'taobao'
+MONGO_TABLE = 'meishi1'
+
+KEYWORD = '美食'
