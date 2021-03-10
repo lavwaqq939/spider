@@ -12,8 +12,9 @@ from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--disable-gpu')
-browser = webdriver.Chrome()
+browser = webdriver.Chrome(chrome_options=chrome_options)
 wait = WebDriverWait(browser, 10)
+products = []
 
 def search(KEYWORD):
 	print('正在搜索')
@@ -37,7 +38,6 @@ def next_page(page_number):
 	print('正在翻页',page_number)
 	try:
 		input = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "#mainsrp-pager > div > div > div > div.form > input")))
-		wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,"#J_BottomSearchForm > button")))
 		sumbit = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#mainsrp-pager > div > div > div > div.form > span.btn.J_Submit")))
 		input.clear()
 		input.send_keys(page_number)
@@ -48,6 +48,7 @@ def next_page(page_number):
 		next_page(page_number)
 	except Exception:
 		print('可能是submit.click()执行过快')
+		browser.refresh()
 		next_page(page_number)
 
 def get_products():
@@ -55,20 +56,20 @@ def get_products():
 		html = browser.page_source
 		doc = pq(html)
 		items = doc("#mainsrp-itemlist .items .item").items()
-		partern = re.compile('"(//g-search.*?webp)"')
 		for item in items:
-			content = item.find('.pic .img').attr('src')
+			if len(item.find('.pic .img').attr('src'))>30:
+				content = item.find('.pic .img').attr('src')
+			else:
+				content = item.find('.pic .img').attr('data-ks-lazyload')
 			product = {
 				'image':content,
-				#'image':partern.search(str(content)).group(1),
 				'price':item.find('.price').text()[2:],
 				'deal':item.find('.deal-cnt').text()[:-3],
 				'title':item.find('.title').text(),
 				'shop':item.find('.shop').text(),
 				'location':item.find('.location').text()
 			}
-			#save_to_mongo(product)
-			print(product)
+			products.append(product)
 
 def save_to_mongo(product):
 	db = connect_mongo()
@@ -78,10 +79,15 @@ def save_to_mongo(product):
 	return False
 
 def main():
+	try:
 		total = search(KEYWORD)
 		total = int(re.compile('(\\d+)').search(total).group(1))
 		for x in range(2,total+1):
 			next_page(x)
+		save_to_mongo(products)
+	except Exception:
+		print('出错了！')
+	finally:
 		browser.close()
 
 if __name__ == '__main__':

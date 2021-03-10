@@ -5,6 +5,6 @@ SSH_PASSWORD = "jIN13462967465"
 MONGO_IP = 'localhost'
 MONGO_PORT = 27017
 MONGO_DB = 'taobao'
-MONGO_TABLE = 'meishi1'
+MONGO_TABLE = 'yifu'
 
-KEYWORD = '美食'
+KEYWORD = '衣服'
