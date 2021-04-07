@@ -1,0 +1,262 @@
+sublime text3:
+
+Boxy Theme:
+	{
+	"auto_find_in_selection": true,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Solarized Dark.tmTheme",
+	"default_line_ending": "unix",
+	"dpi_scale": 1.0,
+	"draw_minimap_border": true,
+	"ensure_newline_at_eof_on_save": true,
+	"fade_fold_buttons": false,
+	"font_face": "Monaco",
+	"font_size": 13,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"save_on_focus_lost": true,
+	"theme": "Boxy Solarized Dark.sublime-theme",
+	"trim_automatic_white_space": true,
+	"trim_trailing_white_space_on_save": true,
+	"update_check": false,
+	"word_wrap": "true"
+	}
+
+Package Control:
+	{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Boxy Theme",
+		"Package Control",
+		"Pylinter",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"Sublimerge 3",
+		"SublimeTmpl"
+	]
+	}
+
+Side Bar:
+	[
+	{ "keys": ["alt+b"], "command": "st_format" },
+	{ "keys": ["alt+e"], "command": "st_select_connection" },
+	{ "keys": ["alt+enter"], "command": "st_execute" },
+	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+	{
+        "keys": ["ctrl+alt+h"], "command": "sublime_tmpl",
+        "args": {"type": "html"}, "context": [{"key": "sublime_tmpl.html"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+j"], "command": "sublime_tmpl",
+        "args": {"type": "js"}, "context": [{"key": "sublime_tmpl.js"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+c"], "command": "sublime_tmpl",
+        "args": {"type": "css"}, "context": [{"key": "sublime_tmpl.css"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+shift+p"], "command": "sublime_tmpl",
+        "args": {"type": "php"}, "context": [{"key": "sublime_tmpl.php"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+r"], "command": "sublime_tmpl",
+        "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+p"], "command": "sublime_tmpl",
+        "args": {"type": "python"}, "context": [{"key": "sublime_tmpl.python"}]
+    },
+	]
+
+Sublimerge:
+	KeyBinding:
+	[
+	{ "keys": ["alt+b"], "command": "st_format" },
+	{ "keys": ["alt+e"], "command": "st_select_connection" },
+	{ "keys": ["alt+enter"], "command": "st_execute" },
+	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+	{
+        "keys": ["ctrl+alt+h"], "command": "sublime_tmpl",
+        "args": {"type": "html"}, "context": [{"key": "sublime_tmpl.html"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+j"], "command": "sublime_tmpl",
+        "args": {"type": "js"}, "context": [{"key": "sublime_tmpl.js"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+c"], "command": "sublime_tmpl",
+        "args": {"type": "css"}, "context": [{"key": "sublime_tmpl.css"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+shift+p"], "command": "sublime_tmpl",
+        "args": {"type": "php"}, "context": [{"key": "sublime_tmpl.php"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+r"], "command": "sublime_tmpl",
+        "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+p"], "command": "sublime_tmpl",
+        "args": {"type": "python"}, "context": [{"key": "sublime_tmpl.python"}]
+    },
+	]
+
+Pylinter:
+	{
+	//Python路径
+	"python_path": [
+        "C:/Users/Administrator/AppData/Local/Programs/Python/Python36/python.exe"
+        ],
+    //安装pylint-1.7.2的绝对路径
+    "pylint_path": "C:/Users/Administrator/AppData/Local/Programs/Python/Python36/Lib/site-packages/pylint/lint.py",
+    //忽略“R”、“C”提示
+    "ignore": ["R","C"],
+
+	}
+
+	KeyBindings:
+	[
+	{ "keys": ["alt+b"], "command": "st_format" },
+	{ "keys": ["alt+e"], "command": "st_select_connection" },
+	{ "keys": ["alt+enter"], "command": "st_execute" },
+	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+	{
+        "keys": ["ctrl+alt+h"], "command": "sublime_tmpl",
+        "args": {"type": "html"}, "context": [{"key": "sublime_tmpl.html"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+j"], "command": "sublime_tmpl",
+        "args": {"type": "js"}, "context": [{"key": "sublime_tmpl.js"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+c"], "command": "sublime_tmpl",
+        "args": {"type": "css"}, "context": [{"key": "sublime_tmpl.css"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+shift+p"], "command": "sublime_tmpl",
+        "args": {"type": "php"}, "context": [{"key": "sublime_tmpl.php"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+r"], "command": "sublime_tmpl",
+        "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+p"], "command": "sublime_tmpl",
+        "args": {"type": "python"}, "context": [{"key": "sublime_tmpl.python"}]
+    },
+	]
+
+SublimeCodeIntel:
+	Settings:
+	{
+	"python":{
+		"python":"C:/Users/Administrator/AppData/Local/Programs/Python/Python36/python.exe",
+		"pythonExtraPaths":[
+			"C:/Users/Administrator/AppData/Local/Programs/Python/Python36",
+			"C:/Users/Administrator/AppData/Local/Programs/Python/Python36/DLLs",
+			"C:/Users/Administrator/AppData/Local/Programs/Python/Python36/Lib",
+			"C:/Users/Administrator/AppData/Local/Programs/Python/Python36/Lib/site-packages",
+
+		]
+	}
+	}
+
+	Key Bindings:
+	[
+	{ "keys": ["alt+b"], "command": "st_format" },
+	{ "keys": ["alt+e"], "command": "st_select_connection" },
+	{ "keys": ["alt+enter"], "command": "st_execute" },
+	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+	{
+        "keys": ["ctrl+alt+h"], "command": "sublime_tmpl",
+        "args": {"type": "html"}, "context": [{"key": "sublime_tmpl.html"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+j"], "command": "sublime_tmpl",
+        "args": {"type": "js"}, "context": [{"key": "sublime_tmpl.js"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+c"], "command": "sublime_tmpl",
+        "args": {"type": "css"}, "context": [{"key": "sublime_tmpl.css"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+shift+p"], "command": "sublime_tmpl",
+        "args": {"type": "php"}, "context": [{"key": "sublime_tmpl.php"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+r"], "command": "sublime_tmpl",
+        "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+p"], "command": "sublime_tmpl",
+        "args": {"type": "python"}, "context": [{"key": "sublime_tmpl.python"}]
+    },
+	]
+
+SublimeREPL:
+
+SublimeTmpl:
+	Menu:
+	{
+
+	"disable_keymap_actions": false, // "all"; "html,css"
+    "date_format" : "%Y-%m-%d %H:%M:%S",
+    "attr": {
+        "author": "leopython",
+        "email": "hailson@sina.com",
+        "link": "http://www.cnblogs.com/leopython/",
+        "Version":"1.0"
+    }
+	}
+
+	Settings:
+	{
+
+    "date_format" : "%Y-%m-%d %H:%M:%S",
+    "attr": {
+        "author": "金建峰",
+        "email": "jinjianfeng_@139.com",
+        "link": "http://www.cnblogs.com/xingyunsyc/",
+        "Version": "1.0"
+    }
+	}
+
+	Key Bindings:
+	[
+	{ "keys": ["alt+b"], "command": "st_format" },
+	{ "keys": ["alt+e"], "command": "st_select_connection" },
+	{ "keys": ["alt+enter"], "command": "st_execute" },
+	{ "keys": ["ctrl+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+	{
+        "keys": ["ctrl+alt+h"], "command": "sublime_tmpl",
+        "args": {"type": "html"}, "context": [{"key": "sublime_tmpl.html"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+j"], "command": "sublime_tmpl",
+        "args": {"type": "js"}, "context": [{"key": "sublime_tmpl.js"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+c"], "command": "sublime_tmpl",
+        "args": {"type": "css"}, "context": [{"key": "sublime_tmpl.css"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+shift+p"], "command": "sublime_tmpl",
+        "args": {"type": "php"}, "context": [{"key": "sublime_tmpl.php"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+r"], "command": "sublime_tmpl",
+        "args": {"type": "ruby"}, "context": [{"key": "sublime_tmpl.ruby"}]
+    }
+    ,{
+        "keys": ["ctrl+alt+p"], "command": "sublime_tmpl",
+        "args": {"type": "python"}, "context": [{"key": "sublime_tmpl.python"}]
+    },
+	]
