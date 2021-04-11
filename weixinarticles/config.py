@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Date    : 2018-07-23 12:17:23
+# @Date    : 2018-08-25 09:54:39
 # @Author  : 金建峰 (jinjianfeng_@139.com)
-# @Link    : http://www.cnblogs.com/yingyunsyc/
+# @Link    : http://www.cnblogs.com/xingyunsyc/
 # @Version : $Id$
-
-import os
 
 SSH_IP = '47.106.9.8'
 SSH_PORT = 22

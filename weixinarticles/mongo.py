@@ -1,16 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Date    : 2018-07-23 12:15:11
+# @Date    : 2018-08-25 15:55:23
 # @Author  : 金建峰 (jinjianfeng_@139.com)
-# @Link    : http://www.cnblogs.com/yingyunsyc/
+# @Link    : http://www.cnblogs.com/xingyunsyc/
 # @Version : $Id$
 
 import os
 from sshtunnel import SSHTunnelForwarder
 import pymongo
-import sys
-
-sys.path.append('..')
 from config import *
 
 def connect_mongo():
@@ -24,10 +21,3 @@ def connect_to_mongo(SSH_IP,SSH_PORT,SSH_USER,SSH_PASSWORD,MONGO_IP,MONGO_PORT,M
 	client = pymongo.MongoClient(host = MONGO_IP)
 	db = client[MONGO_DB]
 	return db
-
-def mongo():
-	db = connect_mongo()
-	print(db)
-
-if __name__ == '__main__':
-	mongo()
